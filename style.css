@@ -1,0 +1,497 @@
+/* ═══════════════════════════════════════════
+   style.css  —  Login Page
+   ═══════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #06090f;
+  --brand-bg:     #0d1526;
+  --card-bg:      #0f1319;
+  --card-border:  rgba(255,255,255,0.07);
+  --accent:       #4f8ef7;
+  --accent-glow:  rgba(79,142,247,0.18);
+  --accent-dim:   rgba(79,142,247,0.12);
+  --text:         #e8edf5;
+  --muted:        #5c6880;
+  --muted-light:  #8693a8;
+  --error:        #f07070;
+  --error-bg:     rgba(240,112,112,0.08);
+  --input-bg:     rgba(255,255,255,0.04);
+  --radius-sm:    10px;
+  --radius-md:    14px;
+  --radius-lg:    22px;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Outfit', sans-serif;
+  --transition:   0.2s ease;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Canvas background ── */
+#bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════
+   Layout
+══════════════════════════════════════ */
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+}
+
+/* ══════════════════════════════════════
+   Brand Panel (esquerda)
+══════════════════════════════════════ */
+.brand-panel {
+  background: var(--brand-bg);
+  border-right: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 52px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradiente decorativo no fundo do painel */
+.brand-panel::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: -80px;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.brand-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(100,60,220,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.brand-inner { position: relative; z-index: 1; }
+
+.brand-logo {
+  color: var(--accent);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.1s ease forwards;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.2s ease forwards;
+}
+
+.brand-tagline {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--muted-light);
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.3s ease forwards;
+}
+
+.brand-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.4s ease forwards;
+}
+
+.brand-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--muted-light);
+  letter-spacing: 0.02em;
+}
+
+.brand-features li svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.brand-footer {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  position: relative; z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.5s ease forwards;
+}
+
+/* ══════════════════════════════════════
+   Form Panel (direita)
+══════════════════════════════════════ */
+.form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+}
+
+/* ══════════════════════════════════════
+   Card
+══════════════════════════════════════ */
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 48px 44px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.04) inset,
+    0 0 60px rgba(0,0,0,0.5),
+    0 32px 64px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.65s 0.15s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+.card-head { margin-bottom: 32px; }
+
+.card-welcome {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* ══════════════════════════════════════
+   Alert
+══════════════════════════════════════ */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  margin-bottom: 20px;
+  animation: shake 0.4s ease;
+}
+
+.alert-error {
+  background: var(--error-bg);
+  border: 1px solid rgba(240,112,112,0.2);
+  color: var(--error);
+}
+
+.alert[hidden] { display: none; }
+
+/* ══════════════════════════════════════
+   Campos
+══════════════════════════════════════ */
+.field {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 0.71rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 7px;
+  transition: color var(--transition);
+}
+
+.field:focus-within label { color: var(--accent); }
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  width: 16px; height: 16px;
+  color: var(--muted);
+  pointer-events: none;
+  transition: color var(--transition);
+  flex-shrink: 0;
+}
+
+.field:focus-within .input-icon { color: var(--accent); }
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 13px 44px 13px 42px;
+  background: var(--input-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+  font-weight: 400;
+  outline: none;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  appearance: none;
+}
+
+input::placeholder { color: rgba(92,104,128,0.55); }
+
+input:focus {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* Autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 100px #0f1319 inset !important;
+  -webkit-text-fill-color: #e8edf5 !important;
+  caret-color: #e8edf5;
+}
+
+/* Estado inválido */
+input.invalid {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px rgba(240,112,112,0.12) !important;
+}
+
+.field-error {
+  display: none;
+  font-size: 0.76rem;
+  color: var(--error);
+  margin-top: 6px;
+  padding-left: 2px;
+}
+
+.field-error.visible { display: block; }
+
+/* Toggle senha */
+.toggle-pw {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition);
+  line-height: 0;
+}
+.toggle-pw:hover { color: var(--text); }
+
+/* ══════════════════════════════════════
+   Opções
+══════════════════════════════════════ */
+.row-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 0 26px;
+}
+
+/* Checkbox customizado */
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember input[type="checkbox"] { display: none; }
+
+.checkmark {
+  width: 16px; height: 16px;
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  background: var(--input-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.remember input:checked ~ .checkmark,
+.remember .checkmark:has(~ input:checked) { /* fallback via JS */ }
+
+.remember input:checked + .checkmark {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.remember input:checked + .checkmark svg { display: block; }
+.checkmark svg { display: none; }
+
+.remember span:last-child {
+  font-size: 0.82rem;
+  color: var(--muted-light);
+}
+
+.link-forgot {
+  font-size: 0.82rem;
+  color: var(--muted-light);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.link-forgot:hover { color: var(--accent); }
+
+/* ══════════════════════════════════════
+   Botão
+══════════════════════════════════════ */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.2s, filter 0.2s;
+}
+
+.btn-submit::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.btn-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(79,142,247,0.35);
+  filter: brightness(1.08);
+}
+
+.btn-submit:active { transform: translateY(0); }
+
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+  box-shadow: none;
+}
+
+/* Loader */
+.btn-label  { transition: opacity 0.15s; }
+.btn-loader {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: spin 0.7s linear infinite;
+  transition: opacity 0.15s;
+}
+
+.btn-submit.loading .btn-label  { opacity: 0; }
+.btn-submit.loading .btn-loader { opacity: 1; }
+
+/* ══════════════════════════════════════
+   Rodapé do card
+══════════════════════════════════════ */
+.register-link {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.83rem;
+  color: var(--muted-light);
+}
+
+.register-link a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+
+.register-link a:hover { opacity: 0.75; }
+
+/* ══════════════════════════════════════
+   Animações
+══════════════════════════════════════ */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-5px); }
+  40%       { transform: translateX(5px); }
+  60%       { transform: translateX(-3px); }
+  80%       { transform: translateX(3px); }
+}
+
+/* ══════════════════════════════════════
+   Responsivo
+══════════════════════════════════════ */
+@media (max-width: 860px) {
+  .page { grid-template-columns: 1fr; }
+  .brand-panel { display: none; }
+  .form-panel { padding: 32px 20px; }
+  .card { padding: 36px 28px; }
+}
+
+@media (max-width: 400px) {
+  .card { padding: 28px 20px; border-radius: var(--radius-md); }
+  .card-title { font-size: 1.6rem; }
+}
