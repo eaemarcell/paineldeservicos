@@ -189,6 +189,7 @@ body {
 
 .input-group {
   margin-bottom: 20px;
+  z-index: 10; /* Garante que ele fique visível, mas sem bloquear o clique */
 }
 
 .input-group label {
@@ -197,7 +198,11 @@ body {
 }
 
 .input-group input,
-.input-group select,
+.input-group select {
+  cursor: pointer !important;
+    appearance: none; /* Garante que a seta nativa suma e a sua apareça */
+    -webkit-appearance: none;
+}
 .input-group textarea {
   width: 100%;
 
@@ -329,19 +334,15 @@ body {
 .modal {
   position: fixed;
   inset: 0;
-
   background: rgba(0,0,0,0.65);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   opacity: 0;
   visibility: hidden;
-
   transition: 0.2s;
-
   padding: 20px;
+  z-index: 9999;
 }
 
 .modal.active {
@@ -349,17 +350,44 @@ body {
   visibility: visible;
 }
 
-.modal-content {
-  width: 100%;
-  max-width: 900px;
+/* O container que segura o modal e o fundo escuro */
+.modal-container {
+    position: fixed; /* Isso garante que ele ignore o layout da sidebar */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none; /* Ou flex quando estiver ativo */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Valor bem alto para ficar na frente de tudo */
+}
 
-  background: #0b1120;
+/* O cartão branco/escuro do formulário em si */
+    .modal-content {
+    background: #050816; /* Cor de fundo do seu tema */
+    width: 90%; /* Ocupa quase tudo em telas pequenas */
+    max-width: 500px; /* Não passa disso em telas grandes */
+    max-height: 95vh; /* Não sai da tela na vertical */
+    overflow: visible;  /* ou simplesmente remove a linha */
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+}
 
-  border: 1px solid rgba(255,255,255,0.08);
-
-  border-radius: 24px;
-
-  padding: 30px;
+.modal-overlay { /* Ou o nome da classe que escurece o fundo */
+    position: fixed; /* Fixa em relação à janela do navegador, não ao conteúdo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Valor alto para garantir que fique acima da sidebar */
+    padding: 20px; /* Evita que o modal encoste nas bordas em telas pequenas */
 }
 
 .modal-header {
@@ -466,4 +494,70 @@ body {
   border-radius: 14px;
 
   cursor: pointer;
+}
+
+/* CUSTOM SELECT */
+.custom-select {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.custom-select-selected {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.custom-select.open .custom-select-selected {
+  border-color: rgba(255,255,255,0.2);
+}
+
+.custom-select-options {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: #0f1729;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  list-style: none;
+  z-index: 99999;
+}
+
+.custom-select.open .custom-select-options {
+  display: block;
+}
+
+.custom-select-options li {
+  padding: 14px 15px;
+  color: white;
+  transition: background 0.15s;
+}
+
+.custom-select-options li:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.custom-select-options li.selected {
+  background: rgba(37,99,235,0.3);
+  color: #60a5fa;
+}
+
+.arrow {
+  font-size: 12px;
+  opacity: 0.7;
+  transition: transform 0.2s;
+}
+
+.custom-select.open .arrow {
+  transform: rotate(180deg);
 }

@@ -14,7 +14,15 @@
   <link rel="stylesheet" href="chamados.css">
 </head>
 
-<!-- MODAL -->
+
+
+<body>
+
+
+
+  <canvas id="bg"></canvas>
+
+  <!-- MODAL -->
 
 <div class="modal" id="ticketModal">
 
@@ -46,35 +54,35 @@
 
       </div>
 
-      <div class="grid">
+      <!-- CATEGORIA -->
+<div class="form-group">
+  <label>Categoria</label>
+  <div class="custom-select" id="selectCategoria">
+    <div class="custom-select-selected">Suporte <span class="arrow">▾</span></div>
+    <ul class="custom-select-options">
+      <li data-value="Suporte">Suporte</li>
+      <li data-value="Banco de Dados">Banco de Dados</li>
+      <li data-value="Infraestrutura">Infraestrutura</li>
+      <li data-value="Backup">Backup</li>
+    </ul>
+  </div>
+  <input type="hidden" name="categoria" id="inputCategoria" value="Suporte">
+</div>
 
-        <div class="form-group">
-
-          <label>Categoria</label>
-
-          <select>
-            <option>Suporte</option>
-            <option>Banco de Dados</option>
-            <option>Infraestrutura</option>
-            <option>Backup</option>
-          </select>
-
-        </div>
-
-        <div class="form-group">
-
-          <label>Prioridade</label>
-
-          <select>
-            <option>Baixa</option>
-            <option>Média</option>
-            <option>Alta</option>
-            <option>Crítica</option>
-          </select>
-
-        </div>
-
-      </div>
+<!-- PRIORIDADE -->
+<div class="form-group">
+  <label>Prioridade</label>
+  <div class="custom-select" id="selectPrioridade">
+    <div class="custom-select-selected">Baixa <span class="arrow">▾</span></div>
+    <ul class="custom-select-options">
+      <li data-value="Baixa">Baixa</li>
+      <li data-value="Média">Média</li>
+      <li data-value="Alta">Alta</li>
+      <li data-value="Crítica">Crítica</li>
+    </ul>
+  </div>
+  <input type="hidden" name="prioridade" id="inputPrioridade" value="Baixa">
+</div>
 
       <div class="form-group">
 
@@ -105,10 +113,6 @@
   </div>
 
 </div>
-
-<body>
-
-  <canvas id="bg"></canvas>
 
   <div class="layout">
 
