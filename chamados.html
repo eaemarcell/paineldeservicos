@@ -191,85 +191,218 @@
       <!-- LISTAGEM -->
       <section class="ticket-list">
 
-        <div class="ticket-card">
+  <div class="ticket-card" onclick="abrirChamado({
+    id: '#1024',
+    titulo: 'Servidor ERP indisponível',
+    status: 'open',
+    statusLabel: 'Aberto',
+    descricao: 'Usuários relatam falha no acesso ao ERP.',
+    prioridade: 'Alta',
+    especialista: 'Claudio Geromel',
+    cadastrado: '14/05/2026 às 00:00',
+    por: 'Marcell Correa'
+  })">
+    <div class="ticket-top">
+      <strong>#1024</strong>
+      <span class="badge open">Aberto</span>
+    </div>
+    <h3>Servidor ERP indisponível</h3>
+    <p>Usuários relatam falha no acesso ao ERP.</p>
+    <div class="ticket-footer">
+      <span>Prioridade: Alta</span>
+      <span>Especialista Alocado: Claudio Geromel</span>
+      <span>Cadastrado em 14/05/2026 às 00:00 por Marcell Correa</span>
+    </div>
+  </div>
 
-          <div class="ticket-top">
+  <div class="ticket-card" onclick="abrirChamado({
+    id: '#1020',
+    titulo: 'Atualização PostgreSQL',
+    status: 'success',
+    statusLabel: 'Concluído',
+    descricao: 'Atualização realizada com sucesso.',
+    prioridade: 'Média',
+    especialista: 'Marcello Pignataro',
+    cadastrado: '13/05/2026 às 16:03',
+    por: 'Wallace Mendes'
+  })">
+    <div class="ticket-top">
+      <strong>#1020</strong>
+      <span class="badge success">Concluído</span>
+    </div>
+    <h3>Atualização PostgreSQL</h3>
+    <p>Atualização realizada com sucesso.</p>
+    <div class="ticket-footer">
+      <span>Prioridade: Média</span>
+      <span>Especialista Alocado: Marcello Pignataro</span>
+      <span>Cadastrado em 13/05/2026 às 16:03 por Wallace Mendes</span>
+    </div>
+  </div>
 
-            <strong>#1024</strong>
+  <div class="ticket-card" onclick="abrirChamado({
+    id: '#1018',
+    titulo: 'Validação de backup',
+    status: 'warning',
+    statusLabel: 'Em análise',
+    descricao: 'Solicitação de validação do backup diário.',
+    prioridade: 'Baixa',
+    especialista: 'Nicollas Oliveira',
+    cadastrado: '12/05/2026 às 19:08',
+    por: 'Leonardo Ferreira'
+  })">
+    <div class="ticket-top">
+      <strong>#1018</strong>
+      <span class="badge warning">Em análise</span>
+    </div>
+    <h3>Validação de backup</h3>
+    <p>Solicitação de validação do backup diário.</p>
+    <div class="ticket-footer">
+      <span>Prioridade: Baixa</span>
+      <span>Especialista Alocado: Nicollas Oliveira</span>
+      <span>Cadastrado em 12/05/2026 às 19:08 por Leonardo Ferreira</span>
+    </div>
+  </div>
 
-            <span class="badge open">
-              Aberto
-            </span>
+</section>
+<!-- MODAL VISUALIZAR CHAMADO -->
+<div class="modal" id="viewModal">
+  <div class="modal-content view-modal-content">
 
-          </div>
+  <div class="modal-header">
 
-          <h3>Servidor ERP indisponível</h3>
+    <div>
+      <h2 id="view-titulo"></h2>
+      <p id="view-id" style="opacity:0.5; margin-top:4px;"></p>
+    </div>
 
-          <p>
-            Usuários relatam falha no acesso ao ERP.
-          </p>
+    <button class="close-modal" id="closeViewModal">✕</button>
 
-          <div class="ticket-footer">
-            <span>Prioridade: Alta</span>
-            <span>Especialista Alocado: Claudio Geromel</span>
-            <span>Cadastrado em 14/05/2026 ás 00:00 por Marcell Correa</span>
-          </div>
+  </div>
 
+  <!-- INFOS -->
+  <div class="view-grid">
+
+    <div class="view-field">
+      <span class="view-label">Status</span>
+      <span id="view-status"></span>
+    </div>
+
+    <div class="view-field">
+      <span class="view-label">Prioridade</span>
+      <span id="view-prioridade" class="view-value"></span>
+    </div>
+
+    <div class="view-field">
+      <span class="view-label">Especialista</span>
+      <span id="view-especialista" class="view-value"></span>
+    </div>
+
+    <div class="view-field">
+      <span class="view-label">Criado por</span>
+      <span id="view-por" class="view-value"></span>
+    </div>
+
+    <div class="view-field">
+      <span class="view-label">Data</span>
+      <span id="view-data" class="view-value"></span>
+    </div>
+
+  </div>
+
+  <!-- DESCRIÇÃO -->
+  <div class="view-field" style="margin-top:20px;">
+    <span class="view-label">Resumo</span>
+
+    <div id="view-descricao" class="view-descricao-box"></div>
+  </div>
+
+  <!-- HISTÓRICO -->
+<div class="history-section">
+
+  <h3>Histórico de Ações</h3>
+
+  <div class="history-list">
+
+    <div class="history-item">
+
+      <div class="history-icon blue">
+        ✓
+      </div>
+
+      <div class="history-content">
+
+        <div class="history-top">
+          <strong>Chamado assumido</strong>
+          <span>14/05/2026 às 00:10</span>
         </div>
 
-        <div class="ticket-card">
+        <p>
+          Claudio Geromel assumiu o atendimento do chamado.
+        </p>
 
-          <div class="ticket-top">
+      </div>
 
-            <strong>#1020</strong>
+    </div>
 
-            <span class="badge success">
-              Concluído
-            </span>
+    <div class="history-item">
 
-          </div>
+      <div class="history-icon yellow">
+        ⚙
+      </div>
 
-          <h3>Atualização PostgreSQL</h3>
+      <div class="history-content">
 
-          <p>
-            Atualização realizada com sucesso.
-          </p>
-
-          <div class="ticket-footer">
-            <span>Prioridade: Média</span>
-            <span>Especialista Alocado: Marcello Pignataro</span>
-            <span>Cadastrado em 13/05/2026 ás 16:03 por Wallace Mendes</span>
-          </div>
-
+        <div class="history-top">
+          <strong>Validação realizada</strong>
+          <span>14/05/2026 às 00:25</span>
         </div>
 
-        <div class="ticket-card">
+        <p>
+          Realizada validação dos serviços do ERP e análise inicial do ambiente.
+        </p>
 
-          <div class="ticket-top">
+      </div>
 
-            <strong>#1018</strong>
+    </div>
 
-            <span class="badge warning">
-              Em análise
-            </span>
+    <div class="history-item">
 
-          </div>
+      <div class="history-icon green">
+        ✔
+      </div>
 
-          <h3>Validação de backup</h3>
+      <div class="history-content">
 
-          <p>
-            Solicitação de validação do backup diário.
-          </p>
-
-          <div class="ticket-footer">
-            <span>Prioridade: Baixa</span>
-            <span>Especialista Alocado: Nicollas Oliveira</span>
-            <span>Cadastrado em 12/05/2026 ás 19:08 por Leonardo Ferreira</span>
-          </div>
-
+        <div class="history-top">
+          <strong>Serviço normalizado</strong>
+          <span>14/05/2026 às 00:48</span>
         </div>
 
-      </section>
+        <p>
+          Reiniciado serviço responsável pela aplicação ERP.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+      
+
+  </div>
+
+  <div class="buttons">
+    <button class="btn-secondary" id="closeViewModal2">
+      Fechar
+    </button>
+  </div>
+
+</div>
 
     </main>
 
