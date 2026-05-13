@@ -40,8 +40,12 @@ body {
 }
 
 .logo {
-  width: 170px;
-  margin-bottom: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center; /* centraliza horizontalmente */
+   padding: 20px 0;
+   width: 240px;
+   margin-bottom: 40px;
 }
 
 .user-box {
@@ -318,4 +322,148 @@ body {
     align-items: flex-start;
   }
 
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.65);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.2s;
+
+  padding: 20px;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 900px;
+
+  background: #0b1120;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 24px;
+
+  padding: 30px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.modal-header p {
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+.close-modal {
+  border: none;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.06);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  background: rgba(255,255,255,0.05);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 14px;
+
+  padding: 15px;
+
+  color: white;
+
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+
+  margin-top: 20px;
+}
+
+.btn-primary {
+  border: none;
+
+  background: #2563eb;
+  color: white;
+
+  padding: 14px 22px;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.btn-secondary {
+  border: none;
+
+  background: rgba(255,255,255,0.06);
+
+  color: white;
+
+  padding: 14px 22px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
 }

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Novo Chamado - AMT Cloud</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="novo-chamado.css">
+</head>
+<body>
+
+  <canvas id="bg"></canvas>
+
+  <div class="layout">
+
+    <!-- MENU -->
+    <aside class="sidebar">
+
+      <div>
+
+        <img src="img/logotipo-amt-cloud-branco.png" class="logo">
+
+        <div class="user-box">
+
+          <div class="avatar">
+            MC
+          </div>
+
+          <div>
+            <h3>Marcell</h3>
+            <span>Administrador</span>
+          </div>
+
+        </div>
+
+        <nav class="menu">
+
+          <a href="dashboard.html">
+            Dashboard
+          </a>
+
+          <a href="chamados.html" class="active">
+            Chamados
+          </a>
+
+          <a href="#">
+            Recursos
+          </a>
+
+          <a href="#">
+            Relatórios
+          </a>
+
+          <a href="#">
+            Conta
+          </a>
+
+        </nav>
+
+      </div>
+
+      <button class="logout">
+        Sair
+      </button>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <div class="topbar">
+
+        <div>
+          <h1>Novo Chamado</h1>
+
+          <p>
+            Abra um novo atendimento
+          </p>
+        </div>
+
+      </div>
+
+      <!-- FORM -->
+
+      <section class="form-card">
+
+        <form>
+
+          <div class="form-group">
+
+            <label>
+              Título do Chamado
+            </label>
+
+            <input
+              type="text"
+              placeholder="Ex: ERP indisponível"
+            >
+
+          </div>
+
+          <div class="grid">
+
+            <div class="form-group">
+
+              <label>
+                Categoria
+              </label>
+
+              <select>
+                <option>Suporte</option>
+                <option>Banco de Dados</option>
+                <option>Infraestrutura</option>
+                <option>Backup</option>
+              </select>
+
+            </div>
+
+            <div class="form-group">
+
+              <label>
+                Prioridade
+              </label>
+
+              <select>
+                <option>Baixa</option>
+                <option>Média</option>
+                <option>Alta</option>
+                <option>Crítica</option>
+              </select>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label>
+              Descrição
+            </label>
+
+            <textarea placeholder="Descreva o problema detalhadamente"></textarea>
+
+          </div>
+
+          <div class="buttons">
+
+            <a href="chamados.html" class="btn-secondary">
+              Cancelar
+            </a>
+
+            <button type="submit" class="btn-primary">
+              Abrir Chamado
+            </button>
+
+          </div>
+
+        </form>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

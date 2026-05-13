@@ -40,8 +40,12 @@ body {
 }
 
 .logo {
-  width: 170px;
-  margin-bottom: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center; /* centraliza horizontalmente */
+   padding: 20px 0;
+   width: 240px;
+   margin-bottom: 40px;
 }
 
 .user-box {
