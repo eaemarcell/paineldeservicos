@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dashboard - AMT Cloud</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <canvas id="bg"></canvas>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div>
+        <img src="img/logotipo-amt-cloud-branco.png" class="logo">
+
+        <div class="user-box">
+          <div class="avatar">MC</div>
+
+          <div>
+            <h3>Marcell</h3>
+            <span>Administrador</span>
+          </div>
+        </div>
+
+        <nav class="menu">
+
+          <a href="#" class="active">
+            
+            Dashboard
+          </a>
+
+          <a href="#">
+            
+            Chamados
+          </a>
+
+          <a href="#">
+            
+            Recursos
+          </a>
+
+          <a href="#">
+           
+            Relatórios
+          </a>
+
+          <a href="#">
+           
+            Conta
+          </a>
+
+        </nav>
+      </div>
+
+      <div class="logout">
+        <button>Sair</button>
+      </div>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="content">
+
+      <header class="topbar">
+
+        <div>
+          <h1>Dashboard</h1>
+          <p>Bem-vindo ao painel da AMT Cloud</p>
+        </div>
+
+        <div class="status">
+          <span class="dot"></span>
+          Ambiente Operacional
+        </div>
+
+      </header>
+
+      <!-- CARDS -->
+      <section class="cards">
+
+        <div class="card">
+          <h3>Chamados Abertos</h3>
+          <strong>12</strong>
+          <span>3 aguardando retorno</span>
+        </div>
+
+        <div class="card">
+          <h3>Máquinas Ativas</h3>
+          <strong>8</strong>
+          <span>100% operacionais</span>
+        </div>
+
+        <div class="card">
+          <h3>Uso CPU</h3>
+          <strong>47%</strong>
+          <span>Dentro do normal</span>
+        </div>
+
+        <div class="card">
+          <h3>Espaço Disco</h3>
+          <strong>72%</strong>
+          <span>Monitoramento ativo</span>
+        </div>
+
+      </section>
+
+      <!-- PAINÉIS -->
+      <section class="dashboard-grid">
+
+        <div class="panel large">
+
+          <div class="panel-header">
+            <h2>Atividades Recentes</h2>
+          </div>
+
+          <div class="activity">
+            <div>
+              <strong>Chamado #1024</strong>
+              <p>Servidor ERP indisponível</p>
+            </div>
+
+            <span class="badge open">Aberto</span>
+          </div>
+
+          <div class="activity">
+            <div>
+              <strong>Chamado #1020</strong>
+              <p>Atualização PostgreSQL concluída</p>
+            </div>
+
+            <span class="badge success">Concluído</span>
+          </div>
+
+          <div class="activity">
+            <div>
+              <strong>Chamado #1018</strong>
+              <p>Validação de backup</p>
+            </div>
+
+            <span class="badge warning">Em análise</span>
+          </div>
+
+        </div>
+
+        <div class="panel">
+
+          <div class="panel-header">
+            <h2>Resumo</h2>
+          </div>
+
+          <ul class="summary">
+
+            <li>
+              <span>Tickets Resolvidos</span>
+              <strong>38</strong>
+            </li>
+
+            <li>
+              <span>Tempo Médio</span>
+              <strong>1h24m</strong>
+            </li>
+
+            <li>
+              <span>Disponibilidade</span>
+              <strong>99.9%</strong>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

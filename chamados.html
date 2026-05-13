@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chamados - AMT Cloud</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="chamados.css">
+</head>
+<body>
+
+  <canvas id="bg"></canvas>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div>
+        <img src="img/logotipo-amt-cloud-branco.png" class="logo">
+
+        <div class="user-box">
+          <div class="avatar">MC</div>
+
+          <div>
+            <h3>Marcell</h3>
+            <span>Administrador</span>
+          </div>
+        </div>
+
+        <nav class="menu">
+
+          <a>
+            
+            Dashboard
+          </a>
+
+          <a href="#" class="active">
+            
+            Chamados
+          </a>
+
+          <a href="#">
+            
+            Recursos
+          </a>
+
+          <a href="#">
+           
+            Relatórios
+          </a>
+
+          <a href="#">
+           
+            Conta
+          </a>
+
+        </nav>
+      </div>
+
+      <div class="logout">
+        <button>Sair</button>
+      </div>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="content">
+
+      <div class="topbar">
+
+        <div>
+          <h1>Chamados</h1>
+          <p>
+            Acompanhe e abra novos chamados
+          </p>
+        </div>
+
+        <button class="new-ticket-btn">
+          + Novo Chamado
+        </button>
+
+      </div>
+
+      <!-- LISTAGEM -->
+      <section class="ticket-list">
+
+        <div class="ticket-card">
+
+          <div class="ticket-top">
+
+            <strong>#1024</strong>
+
+            <span class="badge open">
+              Aberto
+            </span>
+
+          </div>
+
+          <h3>Servidor ERP indisponível</h3>
+
+          <p>
+            Usuários relatam falha no acesso ao ERP.
+          </p>
+
+          <div class="ticket-footer">
+            <span>Prioridade: Alta</span>
+            <span>12/05/2026</span>
+          </div>
+
+        </div>
+
+        <div class="ticket-card">
+
+          <div class="ticket-top">
+
+            <strong>#1020</strong>
+
+            <span class="badge success">
+              Concluído
+            </span>
+
+          </div>
+
+          <h3>Atualização PostgreSQL</h3>
+
+          <p>
+            Atualização realizada com sucesso.
+          </p>
+
+          <div class="ticket-footer">
+            <span>Prioridade: Média</span>
+            <span>11/05/2026</span>
+          </div>
+
+        </div>
+
+        <div class="ticket-card">
+
+          <div class="ticket-top">
+
+            <strong>#1018</strong>
+
+            <span class="badge warning">
+              Em análise
+            </span>
+
+          </div>
+
+          <h3>Validação de backup</h3>
+
+          <p>
+            Solicitação de validação do backup diário.
+          </p>
+
+          <div class="ticket-footer">
+            <span>Prioridade: Baixa</span>
+            <span>10/05/2026</span>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
