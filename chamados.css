@@ -365,16 +365,18 @@ body {
 }
 
 /* O cartão branco/escuro do formulário em si */
-    .modal-content {
-    background: #050816; /* Cor de fundo do seu tema */
-    width: 90%; /* Ocupa quase tudo em telas pequenas */
-    max-width: 500px; /* Não passa disso em telas grandes */
-    max-height: 95vh; /* Não sai da tela na vertical */
-    overflow: visible;  /* ou simplesmente remove a linha */
-    padding: 2rem;
-    border-radius: 8px;
-    position: relative;
+     .modal-content {
+  background: #050816;
+  width: 95%;
+  max-width: 780px;  /* era 500px */
+  max-height: 95vh;
+  overflow-y: auto;  /* scroll se precisar */
+  padding: 2.5rem;
+  border-radius: 16px;
+  position: relative;
 }
+
+
 
 .modal-overlay { /* Ou o nome da classe que escurece o fundo */
     position: fixed; /* Fixa em relação à janela do navegador, não ao conteúdo */
@@ -393,9 +395,13 @@ body {
 .modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
 
-  margin-bottom: 30px;
+.modal-header h2 {
+  font-size: 22px;
+  margin-bottom: 4px;
 }
 
 .modal-header p {
@@ -424,39 +430,41 @@ body {
   margin-bottom: 20px;
 }
 
-.form-group label {
-  display: block;
-
-  margin-bottom: 10px;
-}
-
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-
   background: rgba(255,255,255,0.05);
-
   border: 1px solid rgba(255,255,255,0.08);
-
   border-radius: 14px;
-
-  padding: 15px;
-
+  padding: 14px 18px;
   color: white;
-
   outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 
-.form-group textarea {
-  min-height: 160px;
-  resize: vertical;
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.grid-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.col-2 {
+  grid-column: span 2;
 }
 
 .buttons {
@@ -560,4 +568,44 @@ body {
 
 .custom-select.open .arrow {
   transform: rotate(180deg);
+}
+
+/* GRID 3 COLUNAS */
+.grid-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+/* REQUIRED */
+.required {
+  color: #f87171;
+}
+
+/* FILE INPUT */
+.file-input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 12px 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.file-input::file-selector-button {
+  background: rgba(37,99,235,0.3);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.file-input::file-selector-button:hover {
+  background: rgba(37,99,235,0.5);
 }

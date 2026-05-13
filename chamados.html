@@ -43,72 +43,80 @@
 
     <form>
 
-      <div class="form-group">
-
-        <label>Título</label>
-
-        <input
-          type="text"
-          placeholder="Ex: ERP indisponível"
-        >
-
-      </div>
-
-      <!-- CATEGORIA -->
-<div class="form-group">
-  <label>Categoria</label>
-  <div class="custom-select" id="selectCategoria">
-    <div class="custom-select-selected">Suporte <span class="arrow">▾</span></div>
-    <ul class="custom-select-options">
-      <li data-value="Suporte">Suporte</li>
-      <li data-value="Banco de Dados">Banco de Dados</li>
-      <li data-value="Infraestrutura">Infraestrutura</li>
-      <li data-value="Backup">Backup</li>
-    </ul>
+  <!-- LINHA 1: Usuário + Serviço -->
+  <div class="grid grid-3">
+    <div class="form-group col-2">
+      <label>Resumo <span class="required">*</span></label>
+      <input type="text" placeholder="Ex: ERP indisponível">
+    </div>
+    <div class="form-group">
+      <label>Data da Ocorrência <span class="required">*</span></label>
+      <input type="date" value="2026-05-13">
+    </div>
   </div>
-  <input type="hidden" name="categoria" id="inputCategoria" value="Suporte">
+
+  <!-- LINHA 2: Categoria + Prioridade + Origem -->
+  <div class="grid grid-3">
+    <div class="form-group">
+      <label>Categoria <span class="required">*</span></label>
+      <div class="custom-select" id="selectCategoria">
+        <div class="custom-select-selected">Suporte <span class="arrow">▾</span></div>
+        <ul class="custom-select-options">
+          <li data-value="Suporte">Suporte</li>
+          <li data-value="Banco de Dados">Banco de Dados</li>
+          <li data-value="Infraestrutura">Infraestrutura</li>
+          <li data-value="Backup">Backup</li>
+        </ul>
+      </div>
+      <input type="hidden" name="categoria" id="inputCategoria" value="Suporte">
+    </div>
+    <div class="form-group">
+      <label>Prioridade <span class="required">*</span></label>
+      <div class="custom-select" id="selectPrioridade">
+        <div class="custom-select-selected">Baixa <span class="arrow">▾</span></div>
+        <ul class="custom-select-options">
+          <li data-value="Baixa">Baixa</li>
+          <li data-value="Média">Média</li>
+          <li data-value="Alta">Alta</li>
+          <li data-value="Crítica">Crítica</li>
+        </ul>
+      </div>
+      <input type="hidden" name="prioridade" id="inputPrioridade" value="Baixa">
+    </div>
+    <div class="form-group">
+      <label>Tipo de Incidente <span class="required">*</span></label>
+      <div class="custom-select" id="selectTipo">
+        <div class="custom-select-selected">Selecione <span class="arrow">▾</span></div>
+        <ul class="custom-select-options">
+          <li data-value="Falha">Falha</li>
+          <li data-value="Lentidão">Lentidão</li>
+          <li data-value="Indisponibilidade">Indisponibilidade</li>
+          <li data-value="Outro">Outro</li>
+        </ul>
+      </div>
+      <input type="hidden" name="tipo" id="inputTipo" value="">
+    </div>
+  </div>
+
+
+  <!-- SINTOMA -->
+<div class="form-group">
+  <label>Sintoma <span class="required">*</span></label>
+  <textarea placeholder="Descreva o sintoma observado"></textarea>
 </div>
 
-<!-- PRIORIDADE -->
-<div class="form-group">
-  <label>Prioridade</label>
-  <div class="custom-select" id="selectPrioridade">
-    <div class="custom-select-selected">Baixa <span class="arrow">▾</span></div>
-    <ul class="custom-select-options">
-      <li data-value="Baixa">Baixa</li>
-      <li data-value="Média">Média</li>
-      <li data-value="Alta">Alta</li>
-      <li data-value="Crítica">Crítica</li>
-    </ul>
+  <!-- LINHA 5: Anexo -->
+  <div class="form-group">
+    <label>Anexar Arquivo(s)</label>
+    <input type="file" class="file-input">
   </div>
-  <input type="hidden" name="prioridade" id="inputPrioridade" value="Baixa">
-</div>
 
-      <div class="form-group">
+  <div class="buttons">
+    <button type="button" class="btn-secondary" id="cancelModal">Cancelar</button>
+    <button type="submit" class="btn-primary">Abrir Chamado</button>
+  </div>
 
-        <label>Descrição</label>
-
-        <textarea placeholder="Descreva o problema"></textarea>
-
-      </div>
-
-      <div class="buttons">
-
-        <button
-          type="button"
-          class="btn-secondary"
-          id="cancelModal"
-        >
-          Cancelar
-        </button>
-
-        <button type="submit" class="btn-primary">
-          Abrir Chamado
-        </button>
-
-      </div>
-
-    </form>
+</form>
 
   </div>
 
@@ -203,7 +211,8 @@
 
           <div class="ticket-footer">
             <span>Prioridade: Alta</span>
-            <span>12/05/2026</span>
+            <span>Especialista Alocado: Claudio Geromel</span>
+            <span>Cadastrado em 14/05/2026 ás 00:00 por Marcell Correa</span>
           </div>
 
         </div>
@@ -228,7 +237,8 @@
 
           <div class="ticket-footer">
             <span>Prioridade: Média</span>
-            <span>11/05/2026</span>
+            <span>Especialista Alocado: Marcello Pignataro</span>
+            <span>Cadastrado em 13/05/2026 ás 16:03 por Wallace Mendes</span>
           </div>
 
         </div>
@@ -253,7 +263,8 @@
 
           <div class="ticket-footer">
             <span>Prioridade: Baixa</span>
-            <span>10/05/2026</span>
+            <span>Especialista Alocado: Nicollas Oliveira</span>
+            <span>Cadastrado em 12/05/2026 ás 19:08 por Leonardo Ferreira</span>
           </div>
 
         </div>
