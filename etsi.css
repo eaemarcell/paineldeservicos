@@ -408,3 +408,71 @@ tbody tr:hover td { background: rgba(255,255,255,0.03); }
   .contato-grid  { grid-template-columns: 1fr; }
   .sla-grid      { grid-template-columns: 1fr; }
 }
+
+
+/* SIDEBAR */
+.sidebar {
+  width: 280px;
+  background: rgba(255,255,255,0.04);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px 20px;
+
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.whatsapp-support {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  padding: 14px;
+
+  border-radius: 14px;
+
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+
+  text-decoration: none;
+  color: #fff;
+
+  transition: 0.2s ease;
+}
+
+.whatsapp-support:hover {
+  background: rgba(37, 211, 102, 0.2);
+  transform: translateY(-2px);
+}
+
+.whatsapp-support img {
+  width: 26px;
+  height: 26px;
+  filter: invert(1);
+}
+
+.whatsapp-support span {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.whatsapp-support small {
+  color: #9ca3af;
+  font-size: 12px;
+}

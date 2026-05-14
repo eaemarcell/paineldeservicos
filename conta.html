@@ -13,35 +13,58 @@
 
 <div class="layout">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div>
-      <div class="logo">
-        <img src="img/amt-cloud.png" alt="AMT Cloud" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-        <span style="display:none; font-size:20px; font-weight:700; color:#60a5fa;">AMT Cloud</span>
-      </div>
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-      <div class="user-box">
-        <div class="avatar" id="sidebarAvatar">MC</div>
-        <div>
-          <h3 id="sidebarNome">Marcell Correa</h3>
-          <span>Administrador</span>
-        </div>
-      </div>
-
-      <nav class="menu">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="chamados.html">Chamados</a>
-        <a href="etsi.html">ETSI</a>
-        <a href="#">Relatórios</a>
-        <a href="conta.html" class="active">Conta</a>
-      </nav>
+  <div>
+    <div class="logo">
+      <img src="img/amt-cloud.png" alt="AMT Cloud">
     </div>
+
+    <div class="user-box">
+      <div class="avatar">MC</div>
+
+      <div>
+        <h3>Marcell Correa</h3>
+        <span>Administrador</span>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="chamados.html">Chamados</a>
+      <a href="etsi.html">ETSI</a>
+      <a href="relatorios.html">Relatórios</a>
+      <a href="conta.html" class="active">Conta</a>
+    </nav>
+  </div>
+
+  <div class="sidebar-bottom">
+
+    <a 
+      href="https://wa.me/5521999999999"
+      target="_blank"
+      class="whatsapp-support"
+    >
+      <img 
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg"
+        alt="WhatsApp"
+      >
+
+      <div>
+        <span>Suporte</span>
+        <small>Falar com a AMT</small>
+      </div>
+    </a>
 
     <div class="logout">
-      <button id="logoutBtn">Sair</button>
+      <button>Sair</button>
     </div>
-  </aside>
+
+  </div>
+
+</aside>
+
 
   <!-- CONTEÚDO -->
   <main class="content">
