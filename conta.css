@@ -87,7 +87,13 @@ body {
 .logout button:hover { background: #1d4ed8; }
 
 /* CONTENT */
-.content { flex: 1; padding: 40px; max-width: 860px; }
+.content { 
+  flex: 1;
+    width: 100%;
+    max-width: 100%;
+    padding: 40px;
+    overflow-y: auto; 
+}
 
 /* TOPBAR */
 .topbar {
