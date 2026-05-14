@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETSI - AMT Cloud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="etsi.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <div class="logo">
+        <img src="img/amt-cloud.png" alt="AMT Cloud" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span style="display:none; font-size:20px; font-weight:700; color:#60a5fa;">AMT Cloud</span>
+      </div>
+
+      <div class="user-box">
+        <div class="avatar">MC</div>
+        <div>
+          <h3>Marcell</h3>
+          <span>Administrador</span>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="chamados.html">Chamados</a>
+        <a href="etsi.html" class="active">ETSI</a>
+        <a href="#">Relatórios</a>
+        <a href="#">Conta</a>
+      </nav>
+    </div>
+
+    <div class="logout">
+      <button>Sair</button>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="content">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h1>ETSI – HAYASA</h1>
+      <span class="approved-badge">✓ Aprovado</span>
+    </div>
+    <div class="topbar-sub">
+      <span class="topbar-meta">Aprovado em 2026/03/20 12:55 por cjeromel (versão: 9) | Aprovar: @analistias</span>
+    </div>
+
+    <!-- SERVIÇOS CONTRATADOS -->
+    <div class="section" id="servicos">
+      <div class="section-title">Serviços Contratados</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Serviço</th>
+            <th>Tecnologia/Recurso AMT</th>
+            <th>Origem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BACKUP</td>
+            <td>1000Gb de espaço no Storage</td>
+            <td><span class="ip-pill">PTEC 4573V/2024</span></td>
+          </tr>
+          <tr>
+            <td>BANDA INTERNET</td>
+            <td>05 mbps Full Duplex</td>
+            <td><span class="ip-pill">PTEC 4573V/2024</span></td>
+          </tr>
+          <tr>
+            <td>IPs</td>
+            <td>01 IP Públicos</td>
+            <td><span class="ip-pill">PTEC 4573V/2024</span></td>
+          </tr>
+          <tr>
+            <td>FIREWALL</td>
+            <td>Dedicado</td>
+            <td><span class="ip-pill">PTEC 4573V/2024</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RESUMO DO PROJETO -->
+    <div class="section" id="servidores">
+      <div class="section-title">Resumo do Projeto — Servidores</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPU</th>
+            <th>RAM</th>
+            <th>SSD (GB)</th>
+            <th>IP Interno</th>
+            <th>IP Externo</th>
+            <th>VLAN</th>
+            <th>S.O.</th>
+            <th>Origem</th>
+            <th>Localização</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HAYASA-SERVICE</td>
+            <td>08</td>
+            <td>16</td>
+            <td>200 (Concedido para SSD)</td>
+            <td><span class="ip-pill">192.168.75.2</span></td>
+            <td>—</td>
+            <td>11</td>
+            <td>Windows Server 2019</td>
+            <td><span class="badge badge-blue">PTEC 4573V/2024</span></td>
+            <td>33</td>
+          </tr>
+          <tr>
+            <td>HAYASA-PFW</td>
+            <td>2</td>
+            <td>4</td>
+            <td>80 HDD</td>
+            <td>—</td>
+            <td><span class="ip-pill">201.148.210.14</span></td>
+            <td>11</td>
+            <td>PFSense</td>
+            <td><span class="badge badge-blue">PTEC 4573V/2024</span></td>
+            <td>33</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>TOTAL UTILIZADO</strong></td>
+            <td>10</td><td>20</td><td>280</td>
+            <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PLANO DE COMUNICAÇÃO -->
+    <div class="section" id="comunicacao">
+      <div class="section-title">Plano de Comunicação HAYASA</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <span style="font-size:13px; opacity:0.6;">GCO: Antonio Rogerio</span>
+        <span style="font-size:12px; opacity:0.5;">Última revisão: 31/10/2024</span>
+      </div>
+      <div class="contato-grid">
+        <div class="contato-card">
+          <div class="cargo">Coordenador Técnico</div>
+          <div class="nome">Ricardo R Campos</div>
+          <div class="info">ricardo.campos@techmaster.com.br<br>📱 21 99968-5894</div>
+        </div>
+        <div class="contato-card">
+          <div class="cargo">Analista de Infraestrutura</div>
+          <div class="nome">Dhiego Martins</div>
+          <div class="info">dhiego@techmaster.com.br<br>📱 21 98240-2993</div>
+        </div>
+        <div class="contato-card">
+          <div class="cargo">Analista de Infraestrutura</div>
+          <div class="nome">Vinicius Suelth</div>
+          <div class="info">vinicius.suelth@techmaster.com.br<br>📱 21 98240-2992 &nbsp;☎ 21 2616-9600</div>
+        </div>
+        <div class="contato-card">
+          <div class="cargo">Financeiro</div>
+          <div class="nome">Felipe Dias</div>
+          <div class="info">felipe.dias@hayasa.com.br<br>📱 21 99002-5480 &nbsp;☎ 21 2616-9600</div>
+        </div>
+        <div class="contato-card">
+          <div class="cargo">Gestor do Projeto</div>
+          <div class="nome">Felipe Dias</div>
+          <div class="info">felipe.dias@hayasa.com.br<br>📱 21 99002-5480 &nbsp;☎ 21 2616-9600</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IPs CONTRATADOS -->
+    <div class="section" id="ips">
+      <div class="section-title">IPs Contratados</div>
+      <table>
+        <thead>
+          <tr><th>IP</th><th>IP Backbone</th><th>Máscara</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ip-pill">201.148.210.14</span></td>
+            <td><span class="ip-pill">201.148.210.14</span></td>
+            <td>26</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="height:16px;"></div>
+      <table>
+        <thead>
+          <tr><th>IP</th><th>Bloco</th><th>Em uso</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SLA -->
+    <div class="section" id="sla">
+      <div class="section-title">
+        SLA – Service Level Agreement
+        <span style="font-size:12px; opacity:0.5; font-weight:400;">&nbsp; Contrato 408V3</span>
+      </div>
+      <div class="sla-grid">
+        <div class="sla-card">
+          <div class="tipo">Cloud</div>
+          <div class="nivel">99,5%</div>
+          <div class="desc">Disponibilidade de recursos de cloud computing</div>
+        </div>
+        <div class="sla-card">
+          <div class="tipo">Conectividade</div>
+          <div class="nivel">99,75%</div>
+          <div class="desc">Disponibilidade de links</div>
+        </div>
+        <div class="sla-card">
+          <div class="tipo">Datacenter</div>
+          <div class="nivel">99,75%</div>
+          <div class="desc">Disponibilidade de recursos do datacenter</div>
+        </div>
+        <div class="sla-card">
+          <div class="tipo">Atendimento a Incidente</div>
+          <div class="nivel">até 30 min</div>
+          <div class="desc">Início do atendimento a incidentes e eventos</div>
+        </div>
+        <div class="sla-card">
+          <div class="tipo">Atendimento a Solicitação</div>
+          <div class="nivel">até 1h útil</div>
+          <div class="desc">Solicitações relacionadas a incidentes, em horário comercial</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MATRIZ DE RESPONSABILIDADE -->
+    <div class="section" id="matriz">
+      <div class="section-title">Matriz de Responsabilidade</div>
+      <table class="matriz-table">
+        <thead>
+          <tr>
+            <th style="width:70%">Atividade</th>
+            <th style="width:15%; text-align:center;">Cliente</th>
+            <th style="width:15%; text-align:center;">AMT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="matriz-section-header"><td colspan="3">Operação – Servidor Virtual, Serviços e Aplicações</td></tr>
+          <tr><td>Gerência dos servidores virtuais (S.O. e serviços nativos)</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Controle das atualizações de sistemas operacionais e serviços</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Gerenciamento de usuários e permissionamentos nos servidores virtuais</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Configuração de serviços nativos, incluindo hardening de ambiente</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Gerenciamento do servidor (serviço) de banco de dados</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Gerenciamento de usuários e permissões no servidor (serviço) de banco de dados</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Gerenciamento dos dados de banco de dados</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Gerenciamento das rotinas de manutenção do banco de dados</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Tuning do banco de dados</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Manutenção de códigos de triggers e procedures no banco de dados</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Atualização do servidor (serviço) de banco de dados</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Gerenciamento de aplicações</td><td></td><td></td></tr>
+          <tr><td>Gerenciamento de segurança das aplicações (contas, políticas de senhas, permissões, etc)</td><td></td><td></td></tr>
+
+          <tr class="matriz-section-header"><td colspan="3">Operação – Segurança da Informação e Backup</td></tr>
+          <tr><td>Manutenção da política de segurança (solicitação de novas regras)</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Apoio na manutenção da política de segurança (análise das novas regras)</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Aplicação de mudanças na política de segurança em Firewall na AMT</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Gerência de Firewall na AMT</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Gerência de Firewall nas unidades do cliente</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Guarda de logs em Firewall na AMT</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Guarda de logs em Firewall na unidade do cliente</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Análise periódica de riscos e vulnerabilidades</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Revisão periódica da política de segurança</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Manutenção da política de backup</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Revisão periódica da política de backup</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Gerência e operação do Backup na AMT</td><td></td><td class="x-amt">X</td></tr>
+
+          <tr class="matriz-section-header"><td colspan="3">Operação – Segurança da Informação e Backup (Licenciamentos)</td></tr>
+          <tr><td>Licenciamento da estrutura de virtualização</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Licenciamento de sistema operacional</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Licenciamento de banco de dados MS SQL Server</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Licenciamento Microsoft Remote Desktop</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Licenciamento de antivírus, caso opcional acesso</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Licenciamento de antivírus, caso opcional não acesso</td><td></td><td></td></tr>
+          <tr><td>Licenciamento de aplicações</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Fornecimento de infraestrutura em Datacenter</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Solution Desk em regime 24x7</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Monitoramento do ambiente</td><td></td><td class="x-amt">X</td></tr>
+          <tr><td>Solicitação de upgrade, conforme opcionais</td><td class="x-cliente">X</td><td></td></tr>
+          <tr><td>Upgrade de recursos de máquina virtual, conforme solicitação</td><td></td><td class="x-amt">X</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- DIAGRAMA DE REDE -->
+    <div class="section" id="diagrama">
+      <div class="section-title">Diagrama de Rede</div>
+      <div class="diagrama-box">
+        <div class="diag-node">
+          <div class="diag-icon cloud">☁️</div>
+          <div class="diag-label">Internet</div>
+          <div class="diag-sub">05 Mbps Full-Duplex</div>
+        </div>
+        <div class="diag-line">
+          <div class="diag-line-bar"></div>
+          <div class="diag-line-label">IP: 201.148.210.14<br>VLAN: 301</div>
+        </div>
+        <div class="diag-node">
+          <div class="diag-icon firewall">🔥</div>
+          <div class="diag-label">HAYASA-PFW</div>
+          <div class="diag-sub">PFSense</div>
+        </div>
+        <div class="diag-line">
+          <div class="diag-line-bar"></div>
+          <div class="diag-line-label">IP: 192.168.75.2<br>VLAN: 11</div>
+        </div>
+        <div class="diag-node">
+          <div class="diag-icon server">🖥️</div>
+          <div class="diag-label">HAYASA-SERVICE</div>
+          <div class="diag-sub">Windows Server 2019</div>
+        </div>
+        <div class="diag-line">
+          <div class="diag-line-bar"></div>
+          <div class="diag-line-label">IP: 10.201.23.1</div>
+        </div>
+        <div class="diag-node">
+          <div class="diag-icon backup">💾</div>
+          <div class="diag-label">BACKUP</div>
+          <div class="diag-sub">1000GB Storage</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCEDIMENTOS OPERACIONAIS -->
+    <div class="section" id="backup">
+      <div class="section-title">Procedimentos Operacionais — Backup Granular</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Servidor</th>
+            <th>Janela</th>
+            <th>Retenção</th>
+            <th>Diretório</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HAYASA-SERVICE (192.168.75.2)</td>
+            <td>20h às 07h</td>
+            <td>1 Semana</td>
+            <td>
+              C:\Program Files\PostgreSQL<br>
+              <span style="opacity:0.6;">C:\Cert-execução da pasta Windows</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- OBSERVAÇÕES -->
+    <div class="section" id="observacoes">
+      <div class="section-title">Observações ou Serviços Adicionais</div>
+      <p style="font-size:12px; opacity:0.5; margin-bottom:16px;">Observações de detalhes de serviços adicionais devem ser inseridas aqui.</p>
+      <div class="obs-card">
+        <div class="obs-titulo">Upgrade de Armazenamento</div>
+        <div class="obs-desc">100 GB de upgrade de disco, sob demanda, para máquinas virtuais.</div>
+      </div>
+      <div class="obs-card">
+        <div class="obs-titulo">Upgrade de Link Internet</div>
+        <div class="obs-desc">1 Mbps de upgrade de banda Internet para conexão sob demanda.</div>
+      </div>
+      <div class="obs-card">
+        <div class="obs-titulo">Upgrade de Recursos Computacionais</div>
+        <div class="obs-desc">1 vCPU e 2 GB vRAM para upgrade no provisionamento de nova máquina virtual sob demanda.</div>
+      </div>
+    </div>
+
+    <!-- HISTÓRICO DE REVISÕES -->
+    <div class="section" id="historico">
+      <div class="section-title">Histórico de Revisões</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Origem</th>
+            <th>Conteúdo</th>
+            <th>Analista</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-blue">CS-120040</span></td>
+            <td>Implantação</td>
+            <td>Claudio Geromel</td>
+            <td>10/10/2024</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<script src="etsi.js"></script>
+</body>
+</html>

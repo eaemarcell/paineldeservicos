@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conta – AMT Cloud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="conta.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <div class="logo">
+        <img src="img/amt-cloud.png" alt="AMT Cloud" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span style="display:none; font-size:20px; font-weight:700; color:#60a5fa;">AMT Cloud</span>
+      </div>
+
+      <div class="user-box">
+        <div class="avatar" id="sidebarAvatar">MC</div>
+        <div>
+          <h3 id="sidebarNome">Marcell</h3>
+          <span>Administrador</span>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="chamados.html">Chamados</a>
+        <a href="#">Recursos</a>
+        <a href="etsi.html">ETSI</a>
+        <a href="#">Relatórios</a>
+        <a href="#" class="active">Conta</a>
+      </nav>
+    </div>
+
+    <div class="logout">
+      <button id="logoutBtn">Sair</button>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="content">
+
+    <div class="topbar">
+      <div>
+        <h1>Minha Conta</h1>
+        <p>Gerencie suas informações pessoais e segurança</p>
+      </div>
+    </div>
+
+    <!-- AVATAR + INFO -->
+    <div class="profile-hero">
+      <div class="avatar-wrap">
+        <div class="avatar-big" id="avatarBig">MC</div>
+        <div class="avatar-edit-hint">clique para editar</div>
+      </div>
+      <div class="profile-info">
+        <h2 id="heroNome">Marcell Correa</h2>
+        <span class="role-badge">Administrador</span>
+        <p id="heroEmail" class="hero-email">mcorrea@amt.com.br</p>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- SEÇÃO: INFORMAÇÕES PESSOAIS -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Informações Pessoais</div>
+          <div class="section-sub">Atualize seu nome e e-mail de acesso</div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="inputNome">Nome completo</label>
+          <input type="text" id="inputNome" value="Marcell Correa" placeholder="Seu nome completo">
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">E-mail</label>
+          <input type="email" id="inputEmail" value="marcell@amt.com.br" placeholder="seu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="inputCargo">Cargo</label>
+          <input type="text" id="inputCargo" value="Administrador" placeholder="Seu cargo" disabled>
+          <span class="field-hint">Cargo gerenciado pelo administrador do sistema</span>
+        </div>
+        <div class="form-group">
+          <label for="inputEmpresa">Empresa</label>
+          <input type="text" id="inputEmpresa" value="AMT Cloud" placeholder="Nome da empresa" disabled>
+          <span class="field-hint">Entre em contato com o suporte para alterar</span>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-secondary" id="btnCancelarInfo">Cancelar</button>
+        <button class="btn-primary" id="btnSalvarInfo">Salvar alterações</button>
+      </div>
+    </div>
+
+    <!-- SEÇÃO: ALTERAR SENHA -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Alterar Senha</div>
+          <div class="section-sub">Use uma senha forte com letras, números e símbolos</div>
+        </div>
+        <div class="lock-icon">🔒</div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group full-width">
+          <label for="inputSenhaAtual">Senha atual</label>
+          <div class="input-eye">
+            <input type="password" id="inputSenhaAtual" placeholder="••••••••">
+            <button class="eye-btn" data-target="inputSenhaAtual">👁</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputNovaSenha">Nova senha</label>
+          <div class="input-eye">
+            <input type="password" id="inputNovaSenha" placeholder="••••••••">
+            <button class="eye-btn" data-target="inputNovaSenha">👁</button>
+          </div>
+          <div class="password-strength" id="strengthBar">
+            <div class="strength-track">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <span class="strength-label" id="strengthLabel"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputConfirmarSenha">Confirmar nova senha</label>
+          <div class="input-eye">
+            <input type="password" id="inputConfirmarSenha" placeholder="••••••••">
+            <button class="eye-btn" data-target="inputConfirmarSenha">👁</button>
+          </div>
+          <span class="match-hint" id="matchHint"></span>
+        </div>
+      </div>
+
+      <ul class="password-rules">
+        <li id="rule-len">Mínimo de 8 caracteres</li>
+        <li id="rule-upper">Pelo menos uma letra maiúscula</li>
+        <li id="rule-num">Pelo menos um número</li>
+        <li id="rule-symbol">Pelo menos um símbolo (!@#$...)</li>
+      </ul>
+
+      <div class="form-actions">
+        <button class="btn-secondary" id="btnCancelarSenha">Cancelar</button>
+        <button class="btn-primary" id="btnSalvarSenha">Alterar senha</button>
+      </div>
+    </div>
+
+    <!-- SEÇÃO: SESSÃO -->
+    <div class="section section-danger">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Sessão</div>
+          <div class="section-sub">Informações sobre seu acesso atual</div>
+        </div>
+      </div>
+      <div class="session-info">
+        <div class="session-item">
+          <span class="session-label">Último acesso</span>
+          <span class="session-value">13/05/2026 às 21:00</span>
+        </div>
+        <div class="session-item">
+          <span class="session-label">Dispositivo</span>
+          <span class="session-value">Chrome — Windows</span>
+        </div>
+        <div class="session-item">
+          <span class="session-label">Status</span>
+          <span class="session-value online">● Online agora</span>
+        </div>
+      </div>
+      <div class="form-actions" style="margin-top:20px;">
+        <button class="btn-danger" id="logoutBtn2">Encerrar sessão</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="conta.js"></script>
+</body>
+</html>
