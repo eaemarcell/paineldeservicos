@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes - AMT Cloud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="clientes.css">
+</head>
+
+<!-- MODAL ADICIONAR/EDITAR CLIENTE -->
+<div class="modal" id="clienteModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <h2 id="modalTitle">Novo Cliente</h2>
+        <p id="modalSubtitle">Cadastre um novo cliente no sistema</p>
+      </div>
+      <button class="close-modal" id="closeModal">✕</button>
+    </div>
+    <form id="clienteForm">
+      <input type="hidden" id="clienteId">
+      <div class="grid">
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" id="inputNome" placeholder="Ex: Empresa XYZ">
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" id="inputEmail" placeholder="contato@empresa.com">
+        </div>
+      </div>
+      <div class="grid">
+        <div class="form-group">
+          <label>Login</label>
+          <input type="text" id="inputLogin" placeholder="usuario.acesso">
+        </div>
+        <div class="form-group">
+          <label>Senha</label>
+          <div class="input-icon">
+            <input type="password" id="inputSenha" placeholder="••••••••">
+            <button type="button" class="toggle-pass" data-target="inputSenha">👁</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Empresa / Razão Social</label>
+        <input type="text" id="inputEmpresa" placeholder="Razão Social Ltda.">
+      </div>
+      <div class="form-group">
+        <label>Token AMT</label>
+        <div class="token-field">
+          <input type="text" id="inputToken" readonly placeholder="Será gerado automaticamente">
+          <button type="button" class="btn-token" id="gerarTokenModal">🔄 Gerar Token</button>
+        </div>
+        <span class="hint">O token é fixo por cliente e pode ser regenerado manualmente.</span>
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn-secondary" id="cancelModal">Cancelar</button>
+        <button type="submit" class="btn-primary" id="salvarBtn">Salvar Cliente</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL CONFIRMAÇÃO DELETE -->
+<div class="modal" id="deleteModal">
+  <div class="modal-content modal-sm">
+    <div class="modal-header">
+      <div>
+        <h2>Remover Cliente</h2>
+        <p>Esta ação não pode ser desfeita.</p>
+      </div>
+      <button class="close-modal" id="closeDeleteModal">✕</button>
+    </div>
+    <p class="delete-msg">Tem certeza que deseja remover o cliente <strong id="deleteNome"></strong>?</p>
+    <div class="buttons">
+      <button type="button" class="btn-secondary" id="cancelDelete">Cancelar</button>
+      <button type="button" class="btn-danger" id="confirmDelete">Remover</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TOKEN REGENERADO -->
+<div class="modal" id="tokenModal">
+  <div class="modal-content modal-sm">
+    <div class="modal-header">
+      <div>
+        <h2>Novo Token AMT</h2>
+        <p>Token regenerado com sucesso</p>
+      </div>
+      <button class="close-modal" id="closeTokenModal">✕</button>
+    </div>
+    <div class="token-display">
+      <span id="tokenGerado"></span>
+      <button type="button" class="btn-copy" id="copyToken" title="Copiar token">📋</button>
+    </div>
+    <p class="hint" style="margin-top:10px;">Salve este token em local seguro. Ele será usado para autenticação via API AMT.</p>
+    <div class="buttons" style="margin-top:20px;">
+      <button type="button" class="btn-primary" id="fecharTokenModal">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<body>
+  <canvas id="bg"></canvas>
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div>
+        <img src="img/amt-cloud.png" class="logo" alt="AMT Cloud">
+        <div class="user-box">
+          <div class="avatar">MC</div>
+          <div>
+            <h3>Marcell</h3>
+            <span>Administrador</span>
+          </div>
+        </div>
+        <nav class="menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="chamados.html">Chamados</a>
+          <a href="#">Recursos</a>
+          <a href="#">Relatórios</a>
+          <a href="clientes.html" class="active">Clientes</a>
+          <a href="#">Conta</a>
+        </nav>
+      </div>
+      <div class="logout">
+        <button>Sair</button>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="content">
+      <div class="topbar">
+        <div>
+          <h1>Clientes</h1>
+          <p>Gerencie todos os clientes e seus acessos</p>
+        </div>
+        <button class="new-btn" id="openModal">+ Novo Cliente</button>
+      </div>
+
+      <!-- BARRA DE BUSCA -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="🔍  Buscar por nome, login ou empresa...">
+        <span id="totalClientes" class="counter">0 clientes</span>
+      </div>
+
+      <!-- TABELA -->
+      <section class="table-wrap">
+        <table class="clientes-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nome / Empresa</th>
+              <th>Login</th>
+              <th>Senha</th>
+              <th>Token AMT</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="clientesBody">
+            <!-- preenchido via JS -->
+          </tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <span>👥</span>
+          <p>Nenhum cliente encontrado.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="clientes.js"></script>
+</body>
+</html>
